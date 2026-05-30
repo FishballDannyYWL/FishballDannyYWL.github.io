@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Fly away from HKUST - An SVG Game",
+    "screenshot": "fly-away.png",
+    "techniques": ["JavaScript", "SVG"],
+    "description": "This interesting project was an assignment of a web programming course. Having a theme of HKUST, this game features some landmarks of HKUST, particularly the Sundial (a.k.a. the \"Redbird\", the Turkey) and the Mushroom. The game is written entirely in JavaScript and SVG. Try it out [here](https://fishballdannyywl.github.io/COMP4021-PA2/game.html)!"
+  },
+  {
+    "name": "ICT SBA Project - Music Voting System",
+    "screenshot": "ict-sba.png",
+    "techniques": ["HTML", "JavaScript", "PHP", "MySQL"],
+    "description": "This is my School-Based Assessment Project for my HKDSE Information and Communication Technology. The project is to design a music voting system for a broadcasting company. It is a web application implemented by PHP and MySQL and displays the result by using Google Chart API. It also makes use of reCaptcha to prevent bots from submitting forms."
+  }
+]
+

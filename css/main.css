@@ -1,0 +1,139 @@
+html{
+	position:relative;
+	min-height:100%;
+}
+
+body{
+	padding-top:50px;
+	font-family:'Open Sans';
+	margin-bottom:120px;
+}
+
+textarea{
+	resize: none;
+	height: 200px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+	padding-top: 10px;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+  background-color: #f8f8f8;
+}
+
+hr {
+	border-top: 2px solid #333;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.subtitle {
+	font-size: 14px;
+	font-style: italic;
+}
+
+/* hero section */
+ #index-header {
+	background-image:url('../images/cover.jpg');
+	background-size: cover;
+	height: 250px;
+}
+
+/* sections */
+section p {
+	font-size:18px;
+	overflow:hidden;
+}
+
+section ul{
+	font-size:18px;
+}
+
+/* sections - date blocks */
+section .date {
+	float: left;
+	height: 78px;
+	width: 70px;
+	margin-right: 20px;
+	border: 2px solid #333;
+	text-align: center;
+	display:block;
+}
+section .date p {
+	margin: 5px 0 0;
+}
+
+section .date span {
+	font-size:28px;
+}
+
+/* sections - update blocks */
+
+section .update {
+	min-height: 80px;
+}
+
+section .update p{
+	min-height: 80px;
+}
+
+/* sections - post blocks */
+
+section .post .header {
+	height: 80px;
+	margin-bottom: 10px;
+}
+
+/* section - resume */
+section .name {
+	font-size: 36px;
+}
+
+section .item {
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+section .item .title {
+	font-size: 20px;
+	color: inherit;
+	margin: 0 0 0 0;
+}
+
+section .item .time {
+	font-size: 18px;
+}
+/* carousel */
+section .carousel-caption {
+	color:#000;
+	text-shadow:none;
+}
+
+/* pagination */
+.pagination>li>a,
+.pagination>li>span {
+	border: 0px;
+}
+
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {
+	border: 0px;
+}
+
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {
+	border: 0px;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+	background-color: #fff;
+	border: 0px;
+	color: #333
+}

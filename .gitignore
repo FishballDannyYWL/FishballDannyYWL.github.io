@@ -1,0 +1,17 @@
+*.DS_Store
+
+.idea/
+
+# Astro build output
+dist/
+
+# Astro cache
+.astro/
+
+# Dependencies
+node_modules/
+
+# Yarn
+.yarn/cache
+.yarn/install-state.gz
+.pnp.*

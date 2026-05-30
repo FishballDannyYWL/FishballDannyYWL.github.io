@@ -1,0 +1,22 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Carousel from '../components/Carousel.astro';
+
+const slides = [
+  { src: '/images/interest/Screenshot-1.jpg', alt: 'A building'      },
+  { src: '/images/interest/Screenshot-2.jpg', alt: 'A pier'          },
+  { src: '/images/interest/Screenshot-3.jpg', alt: 'The community'   },
+  { src: '/images/interest/Screenshot-4.jpg', alt: 'Interior design' },
+];
+---
+<PageLayout title="Other Interests" subtitle="I code. I code often. But I don't code 24/7.">
+  <details class="border border-gray-200 rounded-lg overflow-hidden" open>
+    <summary class="px-5 py-3 bg-gray-50 cursor-pointer font-semibold select-none hover:bg-gray-100 transition-colors">
+      The Sims
+    </summary>
+    <div class="p-6">
+      <h3 class="text-lg font-semibold mb-4">Some of the things I made with The Sims 3</h3>
+      <Carousel slides={slides} />
+    </div>
+  </details>
+</PageLayout>

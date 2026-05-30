@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout>
+  <!-- Hero -->
+  <section
+    class="relative h-64 flex items-center justify-center bg-cover bg-center"
+    style="background-image: url('/images/cover.jpg')"
+    aria-label="Hero"
+  >
+    <div class="absolute inset-0 bg-black/45"></div>
+    <h1 class="relative z-10 text-5xl font-bold text-white tracking-wide drop-shadow-lg">
+      Danny YU
+    </h1>
+  </section>
+
+  <!-- Content -->
+  <div class="max-w-5xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold mb-8">Welcome to my personal website!</h2>
+    <section>
+      <h3 class="text-xl font-semibold mb-5">About Me</h3>
+      <p class="text-gray-700 leading-relaxed">
+        Danny has graduated from the Hong Kong University of Science and Technology,
+        where he studied Computer Science. Born and raised in Hong Kong, he enjoys
+        the lifestyle there.
+      </p>
+    </section>
+  </div>
+</BaseLayout>
+

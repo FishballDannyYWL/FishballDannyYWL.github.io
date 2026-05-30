@@ -1,0 +1,38 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import portfolioData from '../data/portfolio.json';
+import { marked } from 'marked';
+
+const items = portfolioData.map(item => ({
+  ...item,
+  descriptionHtml: marked.parse(item.description) as string,
+}));
+---
+<PageLayout title="Portfolio" subtitle="A selection of my work">
+  <div class="space-y-12">
+    {items.map((item, i) => (
+      <div>
+        <section class="grid md:grid-cols-3 gap-8">
+          <div class="md:col-span-2">
+            <h3 class="text-xl font-semibold mb-2">{item.name}</h3>
+            <p class="text-sm text-gray-500 mb-3">
+              <span class="font-medium text-gray-700">Techniques:</span>{' '}
+              {item.techniques.join(', ')}
+            </p>
+            <div class="prose prose-sm prose-gray max-w-none" set:html={item.descriptionHtml} />
+          </div>
+          <div>
+            <img
+              src={`/images/portfolio/${item.screenshot}`}
+              alt={item.name}
+              class="w-full rounded-lg shadow-sm border border-gray-100"
+              loading="lazy"
+            />
+          </div>
+        </section>
+        {i < items.length - 1 && <hr class="border-gray-200 mt-12" />}
+      </div>
+    ))}
+  </div>
+</PageLayout>
+

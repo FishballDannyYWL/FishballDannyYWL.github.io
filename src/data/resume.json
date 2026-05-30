@@ -1,0 +1,92 @@
+{
+	"sections":[
+		{
+			"heading":"Education",
+			"items":[
+				{
+					"title":"Hong Kong University of Science and Technology, Hong Kong",
+					"text":"Bachelor of Engineering in Computer Science <br/> First Class Honors",
+					"time":"Sep 2013 – May 2017"
+				},
+				{
+					"title":"École Polytechnique Fédérale de Lausanne, Switzerland",
+					"text":"Exchange Student",
+					"time":"Feb 2016 – Jul 2016"
+				},
+				{
+					"title":"Tsung Tsin College, Hong Kong",
+					"text":"Hong Kong Diploma of Secondary Education <br/> Information and Communication Technology (5*), Physics (5*)",
+					"time":"Sep 2007 – May 2013"
+				}
+			]
+		},
+		{
+			"heading":"Work Experience",
+			"items":[
+				{
+					"title":"Department of Computer Science and Engineering,<br/>Hong Kong University of Science and Technology, Hong Kong",
+					"text":"Student Lab Helper",
+					"time":"Sep 2016 – Nov 2016 &amp; <br/> Feb 2015 – May 2015",
+					"descriptions":["Assist teaching assistants in class","Grade students' lab exercises and assignments","Answer students' questions regarding their lab exercises"]
+				},{
+					"title": "Viatick Pte Ltd, Singapore",
+					"text":"IT Developer (Intern)",
+					"time":"Jun 2015 - Aug 2015",
+					"descriptions": ["Developed a real-time messaging system for the company", "Provided the API for other projects in the company"]
+				}
+			]
+
+		},
+		{
+			"heading":"Language",
+			"items":[
+				{
+					"title":"Chinese",
+					"text": "Native in Cantonese and Hakka <br/> Fluent in Mandarin"
+				},
+				{
+					"title":"English",
+					"text": "Professional"
+				},
+				{
+					"title":"French",
+					"text":"Elementary"
+				}
+			]
+		},
+		{
+			"heading":"Computer Skills",
+			"items":[
+				{
+					"title":"Language",
+					"descriptions":["C/C++","Java","JavaScript", "Python","HTML","SQL","CSS"]
+				}
+			]
+		},
+		{
+			"heading":"Honours",
+			"items":[
+				{
+					"title":"Fung Scholarship",
+					"time":"Year 2015 – 2016"
+				},
+				{
+					"title":"Hong Kong & Kowloon Electrical Appliances Merchants Association Scholarship",
+					"time":"Year 2015 – 2016"
+				},
+				{
+					"title":"Dean's List, HKUST",
+					"time":"Fall 2013 – Fall 2015"
+				},
+				{
+					"title":"Hong Kong Chiu Chow Chamber of Commerce Scholarship",
+					"time":"Year 2014 – 2015"
+				},
+				{
+					"title":"Dean of Engineering Scholarship, HKUST",
+					"time":"Year 2013 – 2014"
+				}
+			]
+		}
+	]
+}

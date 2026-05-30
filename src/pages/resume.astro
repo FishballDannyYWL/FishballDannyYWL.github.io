@@ -1,0 +1,40 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+import resumeData from '../data/resume.json';
+---
+<PageLayout title="Résumé">
+  <!-- Profile -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-bold mb-3">YU Wang Leung, Danny</h2>
+    <ContactInfo />
+  </div>
+
+  <hr class="border-gray-200 mb-8" />
+
+  <!-- Resume sections -->
+  <div class="space-y-10">
+    {resumeData.sections.map(section => (
+      <section>
+        <h2 class="text-lg font-bold uppercase tracking-wider text-gray-500 mb-4 pb-1 border-b border-gray-200">
+          {section.heading}
+        </h2>
+        <div class="space-y-5">
+          {section.items.map(item => (
+            <div class="text-gray-700">
+              <div class="font-semibold text-gray-900" set:html={item.title} />
+              {item.text  && <div class="text-sm mt-0.5 text-gray-600" set:html={item.text} />}
+              {item.time  && <div class="text-sm mt-0.5 text-gray-400" set:html={item.time} />}
+              {item.descriptions && (
+                <ul class="list-disc list-inside mt-1 space-y-0.5 text-sm text-gray-600">
+                  {item.descriptions.map(d => <li>{d}</li>)}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</PageLayout>
+

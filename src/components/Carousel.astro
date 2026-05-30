@@ -1,0 +1,106 @@
+---
+interface Slide {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+<div class="relative max-w-2xl" id="carousel">
+
+  <!-- Scroll-snap track -->
+  <div
+    id="carousel-track"
+    class="flex overflow-x-scroll snap-x snap-mandatory rounded-lg bg-black
+           scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+  >
+    {slides.map((slide, i) => (
+      <div class="snap-start shrink-0 w-full" data-slide={i}>
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          class="w-full max-h-96 object-contain"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+
+  <!-- Prev / Next -->
+  <button
+    id="prev-btn"
+    aria-label="Previous slide"
+    class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  <button
+    id="next-btn"
+    aria-label="Next slide"
+    class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+
+  <!-- Dots -->
+  <div class="flex justify-center gap-2 mt-3">
+    {slides.map((_, i) => (
+      <button
+        class="carousel-dot w-2.5 h-2.5 rounded-full transition-colors bg-gray-300"
+        data-index={i}
+        aria-label={`Go to slide ${i + 1}`}
+      />
+    ))}
+  </div>
+</div>
+
+<script>
+  // Support multiple carousels on the same page by scoping to the nearest wrapper.
+  document.querySelectorAll<HTMLElement>('#carousel').forEach(carousel => {
+    const track  = carousel.querySelector<HTMLElement>('#carousel-track')!;
+    const dots   = Array.from(carousel.querySelectorAll<HTMLElement>('.carousel-dot'));
+    const slides = Array.from(track.children) as HTMLElement[];
+    const total  = slides.length;
+    let current  = 0;
+
+    function goTo(index: number) {
+      current = ((index % total) + total) % total;
+      slides[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }
+
+    function setActiveDot(index: number) {
+      dots.forEach((d, i) => {
+        d.classList.toggle('bg-blue-600', i === index);
+        d.classList.toggle('bg-gray-300', i !== index);
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const idx = slides.indexOf(entry.target as HTMLElement);
+            if (idx !== -1) { current = idx; setActiveDot(idx); }
+          }
+        }
+      },
+      { root: track, threshold: 0.6 }
+    );
+    slides.forEach(slide => observer.observe(slide));
+
+    carousel.querySelector('#prev-btn')?.addEventListener('click', () => goTo(current - 1));
+    carousel.querySelector('#next-btn')?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    setActiveDot(0);
+  });
+</script>
+

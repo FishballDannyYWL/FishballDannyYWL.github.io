@@ -1,0 +1,77 @@
+---
+const navLinks = [
+  { href: '/',          label: 'Home'      },
+  { href: '/resume',    label: 'Résumé'    },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/interests', label: 'Interests' },
+  { href: '/contact',   label: 'Contact'   },
+];
+
+const current = Astro.url.pathname;
+---
+<header class="bg-slate-900 text-white sticky top-0 z-40 shadow-md">
+  <nav
+    class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between"
+    aria-label="Main navigation"
+  >
+    <a href="/" class="font-bold text-lg tracking-tight hover:text-blue-400 transition-colors">
+      Danny YU
+    </a>
+
+    <!-- Desktop -->
+    <ul class="hidden md:flex items-center gap-6 text-sm font-medium">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={`transition-colors hover:text-blue-400 ${current === link.href || (link.href !== '/' && current.startsWith(link.href)) ? 'text-blue-400' : ''}`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile toggle -->
+    <button
+      id="menu-toggle"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      class="md:hidden p-2 rounded hover:bg-slate-700 transition-colors"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-700">
+    <ul class="max-w-5xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm font-medium">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={`block py-2 hover:text-blue-400 transition-colors ${current === link.href ? 'text-blue-400' : ''}`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu   = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+  });
+</script>
+
+
